@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header>
+    <h1><a href="index.html">CarZone</a></h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="car.html">Cars</a></li>
+        <li><a href="#brands">Cars Brand</a></li>
+        <li><a href="report.html">Report</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="brands">
+    <h1>List of Car Brands</h1>
+
+    <div>
+      <ul id="carBanrdsContainer">
+
+      </ul>
+    </div>
+
+  </main>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <footer>
+    <p>&copy; 2023 Car Zone. All rights reserved</p>
+  </footer>
+
+  <script>
+    const carBanrdsContainer = document.getElementById("carBanrdsContainer")
+    let carBrands = [
+      {
+        id: "1",
+        name: "CarCo",
+        country: "United States",
+        founded: 1990,
+        headquarters: "Detroit, Michigan",
+        popularModels: ["Family Sedan", "Sporty Coupe", "Luxury SUV"]
+      },
+      {
+        id: "2",
+        name: "AutoTech",
+        country: "Germany",
+        founded: 1985,
+        headquarters: "Stuttgart",
+        popularModels: ["All-Terrain SUV", "Performance Sedan", "Convertible"]
+      },
+      {
+        id: "3",
+        name: "GreenDrive",
+        country: "Japan",
+        founded: 2005,
+        headquarters: "Tokyo",
+        popularModels: ["Electric", "Hybrid Compact", "Fuel-Efficient Hatchback"]
+      }
+    ];
+
+
+    for (let i = 0; i < carBrands.length; i++) {
+      if (carBrands && carBrands.length > 0) {
+        carBanrdsContainer.innerHTML = `
+          <li>
+            <p><strong>${carBrands[0].name}(${carBrands[0].country})<strong></p>
+            <p><strong>Founder Year: </strong>${carBrands[0].founded}</p>
+            <p><strong>headquarters: </strong>${carBrands[0].headquarters}</p>
+            <p><strong>popular Models: </strong>${carBrands[0].popularModels.join(", ")}</p>
+          </li>       
+          <li>
+            <p><strong>${carBrands[1].name}(${carBrands[1].country})<strong></p>
+            <p><strong>Founder Year: </strong>${carBrands[1].founded}</p>
+            <p><strong>headquarters: </strong>${carBrands[1].headquarters}</p>
+            <p><strong>popular Models: </strong>${carBrands[1].popularModels.join(", ")}</p>
+          </li>       
+          <li>
+            <p><strong>${carBrands[2].name}(${carBrands[2].country})<strong></p>
+            <p><strong>Founder Year: </strong>${carBrands[2].founded}</p>
+            <p><strong>headquarters: </strong>${carBrands[2].headquarters}</p>
+            <p><strong>popular Models: </strong>${carBrands[2].popularModels.join(", ")}</p>
+          </li>       
+        
+        `
+      }
+    }
+  </script>
+</body>
+
+</html>

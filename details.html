@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header>
+    <h1><a href="index.html">CarZone</a></h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="ca.html">Cars</a></li>
+        <li><a href="brands.html">Cars Brand</a></li>
+        <li><a href="report.html">Report</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Car Details</h1>
+
+    <div id="carDetailsContainer"></div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Car Zone. All rights reserved</p>
+  </footer>
+
+  <script>
+    const carDetailsContainer = document.getElementById("carDetailsContainer")
+    let cars = [
+      {
+        id: "1",
+        name: "Family Sedan",
+        model: "Sedan",
+        detail: "A comfortable family car with sleek design.",
+        manufacturer: "CarCo",
+        year: 2022,
+        color: "Blue",
+        price: 300000
+      },
+      {
+        id: "2",
+        name: "All-Terrain SUV",
+        model: "SUV",
+        detail: "An all-terrain vehicle with spacious interior.",
+        manufacturer: "AutoTech",
+        year: 2023,
+        color: "Silver",
+        price: 450000
+      },
+      {
+        id: "3",
+        name: "GreenDrive Electric",
+        model: "Electric",
+        detail: "An eco-friendly electric car with cutting-edge technology.",
+        manufacturer: "GreenDrive",
+        year: 2021,
+        color: "Green",
+        price: 500000
+      }
+    ];
+
+    function getParamsId(id) {
+      let url = new URL(window.location.href)
+
+      return url.searchParams.get(id)
+    }
+
+    let carsId = getParamsId("id")
+
+    let carData;
+    for (let i = 0; i < cars.length; i++) {
+      if (carsId === cars[i].id) {
+        carData = cars[i]
+      }
+    }
+
+    if (carData) {
+      carDetailsContainer.innerHTML = `
+      <h2>${carData.name}</h2>
+      <ul>
+        <li>Model: ${carData.model}</li>
+        <li>detail: ${carData.detail}</li>
+        <li>manufacturer: ${carData.manufacturer}</li>
+        <li>year: ${carData.year}</li>
+        <li>color: ${carData.color}</li>
+        <li>price: Rs${carData.price}</li>
+      </ul>
+      
+      `
+    } else {
+      carDetailsContainer.innerHTML = `<h5>unable to Fetch Data</h5>`
+    }
+
+  </script>
+</body>
+
+</html>
